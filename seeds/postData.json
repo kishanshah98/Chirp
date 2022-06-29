@@ -1,0 +1,32 @@
+[
+    {
+        "user_name": "Coder",
+        "chirp": "Coding rocks!",
+        "comments": [
+            {
+                "user_name": "Java-Monster",
+                "comment": "Hell yeah!"
+            },
+            {
+                "user_name": "King-Python",
+                "comment": "Python is #1!!!"
+            }
+        ]
+
+    },
+    {
+        "user_name": "Java-Monster",
+        "chirp": "I code 24/7!",
+        "comments": [
+            {
+                "user_name": "Coder",
+                "comment": "You're a wild man!"
+            },
+            {
+                "user_name": "King-Python",
+                "comment": "Insane!!!"
+            }
+        ]
+
+    }
+]
