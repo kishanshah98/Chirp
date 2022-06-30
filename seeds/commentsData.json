@@ -1,0 +1,13 @@
+[
+    {
+        "comments": "cool",
+        "user_id": 2,
+        "chirp_id": 1
+    },
+    {
+        "comments": "haha",
+        "user_id": 1,
+        "chirp_id": 6
+
+    }
+]
