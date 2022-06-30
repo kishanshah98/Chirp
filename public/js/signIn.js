@@ -22,5 +22,5 @@ const signInFormHandler = async (event) => {
     }
   };
 
-  document.querySelector(".sign-in-form").addEventListener("click", signInFormHandler);
+  document.getElementById("submitBtn").addEventListener("click", signInFormHandler);
 
