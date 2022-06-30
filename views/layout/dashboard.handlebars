@@ -41,14 +41,14 @@
                     <a class="nav-link" href="/main">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <button id="sign-out" href="/signOut">Sign Out</button>
+                    <button id="sign-out" href="/signout">Sign Out</button>
                 </li>
             {{else}}
             <li class="nav-item">
-                    <a class="nav-link" href="/signIn">Sign In</a>
+                    <a class="nav-link" href="/signin">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="sign-up" href="/signUp">Sign Up</button>
+                    <button id="sign-up" href="/signup">Sign Up</button>
                 </li>
             {{/if}}
         </ul>
@@ -60,7 +60,7 @@
     </main>
 
     {{#if logged_in}}
-    <script src="/Group Projects/Project2/Chirp/public/js/signOut.js"></script>
+    <script src="/js/signOut.js"></script>
     {{/if}}
   </body>
 </html>
