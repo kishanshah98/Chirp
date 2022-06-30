@@ -3,18 +3,18 @@ const {User} = require("../../models");
 const passport = require("../../config/passport");
 
 // Login
-router.post("/login", passport.authenticate("local"), async (req, res) => {
-  console.log("POST /api/user/login");
+// router.post("/login", passport.authenticate("local"), async (req, res) => {
+//   console.log("POST /api/user/login");
 
-  try {
-    res
-      .status(200)
-      .json({ user: req.user, message: "You are now logged in!" });
-  } catch (err) {
-    console.log(err);
-    res.status(401).json(err);
-  }
-});
+//   try {
+//     res
+//       .status(200)
+//       .json({ user: req.user, message: "You are now logged in!" });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(401).json(err);
+//   }
+// });
 
 // CREATE new user thru signup
 router.post("/signup", async (req, res) => {
