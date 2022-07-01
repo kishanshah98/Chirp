@@ -7,3 +7,21 @@
   </div>
 </div>
 
+{{#if logged_in}}
+  <div class="mb-3 new-chirp-comment" data-chirpid={{id}}>
+  <label for="exampleFormControlTextarea1" class="form-label">Post a comment below...</label>
+  <textarea class="form-control" id="commentBody" rows="3"></textarea>
+  <button class="btn primary" type="submit" id="submitBtn">Post Comment</button>
+</div>
+{{/if}}
+
+<h2>Chirp Comments</h2>
+{{#each comments as ||comment}}
+<div class="chirp-comments">
+  <p>{{comments}}</p>
+  <p>{{created_at}}</p>
+</div>
+{{/each}}
+
+<script src="/js/comments.js"></script>
+
