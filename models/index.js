@@ -12,7 +12,7 @@ Chirp.belongsTo(User, {
 });
 
 User.hasMany(Comments, {
-    foreignKey: 'chirp_id',
+    foreignKey: 'user_id',
 });
   
 Comments.belongsTo(Chirp, {
@@ -22,5 +22,9 @@ Comments.belongsTo(Chirp, {
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
 });
+
+Chirp.hasMany(Comments, {
+    foreignKey: 'chirp_id'
+})
 
 module.exports = { User, Comments, Chirp };
