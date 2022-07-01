@@ -1,0 +1,16 @@
+{{#each chirps as |chirp|}}
+
+<div class="row">
+    <div class="chirpContainer">
+        <div class="row">
+            <div class="col">
+                <p class="createChirp">Created by {{user_name}} on {{date_created}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="chirpText">
+        <p>{{chirp}}</p>
+    </div>
+</div>
+
+{{/each}}
