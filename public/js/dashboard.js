@@ -35,7 +35,7 @@ const deleteChirp = async (event) => {
     }
 };
 
-document.querySelector(".submitBtn").addEventListener("click", newChirp);
+document.getElementById("submitBtn").addEventListener("click", newChirp);
 document.getElementById("deleteBtn").addEventListener("click", deleteChirp);
 
 
