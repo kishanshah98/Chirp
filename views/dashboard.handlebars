@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col">
+        <h1>
+            Hello {{ user_name }}! Welcome to TechTalk!
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h2>New Chirp:</h2>
+     <form class="row g-3">
+        <div class="chirp-content">
+            <textarea type="text" class="form-control" placeholder="body" id="chirpBody"></textarea>
+        </div>
+        <div class="submit-chirp">
+            <button class="btn" type="submit" id="submitBtn">Submit</button>
+        </div>
+     </form>
+    </div>
+
+    {{#if chirp.length}}
+    <div class="col chirp-list">
+        <h2>Chirp Feed:</h2>
+        {{#each chirps as |chirp|}}
+        <div class="row">
+            <div class="col">
+                <h3><a href="/posts/{{chirp.id}}">{{chirp}}</a></h3>
+            </div>
+            <div class="col">
+               <button class="btn" type="submit" id="deleteBtn" data-id"{{chirp.id}}">Delete</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<script src="/js/dashboard.js"></script>
