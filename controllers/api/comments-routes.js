@@ -29,17 +29,16 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-// not working
 router.post('/', async (req, res) => {
+    console.log('POST /api/comments');
     try {
         const commentData = await Comments.create({
             comments: req.body.comments,
             chirp_id: req.body.chirp_id,
-            user_id: req.session.user_id,
+            user_id: req.body.user_id,
         });
-
+        console.log(commentData);
         res.json(commentData);
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
