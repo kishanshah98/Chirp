@@ -1,6 +1,82 @@
 const router = require("express").Router();
-const {User} = require("../../models");
+const { User, Chirp, Comments } = require("../../models");
 const passport = require("../../config/passport");
+
+router.get('/', async (req, res) => {
+  try {
+      const userData = await User.findAll({
+          attributes: { exclude: ['password'] }
+      });
+
+      res.json(userData);
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+      const userData = await User.findOne({
+          attributes: {
+              exclude: ['password']
+          },
+          where: {
+              id: req.params.id
+          },
+          include: [
+              {
+                  model: Chirp,
+                  attributes: ['id', 'chirp'],
+              },
+              {
+                  model: Comments,
+                  attributes: ['id', 'comments', 'created_at'],
+                  include: {
+                      model: Chirp,
+                      attributes: ['chirp']
+                  }
+              },
+          ]
+      })
+
+      if (!userData) {
+          res.status(404).json({ message: 'There is no user with this id' });
+          return;
+      }
+
+      res.json(userData)
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Login
 // router.post("/login", passport.authenticate("local"), async (req, res) => {

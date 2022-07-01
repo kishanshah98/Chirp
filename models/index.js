@@ -14,13 +14,14 @@ Chirp.belongsTo(User, {
 User.hasMany(Comments, {
     foreignKey: 'user_id',
 });
-  
-Comments.belongsTo(Chirp, {
-    foreignKey: 'chirp_id',
-});
 
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
+});
+
+Comments.belongsTo(Chirp, {
+    foreignKey: 'chirp_id',
+    onDelete: 'CASCADE'
 });
 
 Chirp.hasMany(Comments, {
