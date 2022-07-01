@@ -1,3 +1,94 @@
-const router = require("express").Router();
+const router = require('express').Router();
+const { Comments } = require('../../models');
 
-module.exports = router
+router.get('/', async (req, res) => {
+    try {
+        const commentData = await Comments.findAll();
+
+        res.json(commentData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const commentData = await Comments.findAll({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        res.json(commentData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+// not working
+router.post('/', async (req, res) => {
+    try {
+        const commentData = await Comments.create({
+            comments: req.body.comments,
+            chirp_id: req.body.chirp_id,
+            user_id: req.session.user_id,
+        });
+
+        res.json(commentData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    try {
+        const commentData = await Comments.update({
+            comments: req.body.comments
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!commentData) {
+            res.status(404).json({ message: 'No comment found with this id!' });
+            return;
+        }
+
+        res.json(commentData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const commentData = await Comments.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!commentData) {
+            res.status(404).json({ message: 'No comment found with this id!'});
+            return;
+        }
+
+        res.json(commentData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+module.exports = router;
