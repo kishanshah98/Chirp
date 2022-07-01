@@ -18,4 +18,4 @@ const submitComment = async (event) => {
     }
 };
 
-document.getElementById("submitBtn").addEventListener("click", submitComment);
+// document.getElementById("submitBtn").addEventListener("click", submitComment);

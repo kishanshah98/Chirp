@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <h1>
-            Hello {{ user_name }}! Welcome to TechTalk!
+            Hello {{ user_name }}! Welcome to Chirp!
         </h1>
     </div>
 </div>
@@ -15,20 +15,18 @@
         </div>
         <div class="submit-chirp">
             <button class="btn" type="submit" id="submitBtn">Submit</button>
+            <button class="btn" type="submit" id="deleteBtn" data-id={{chirp.id}}>Delete</button>
         </div>
      </form>
     </div>
 
-    {{#if chirp.length}}
+    {{#if chirps.length}}
     <div class="col chirp-list">
         <h2>Chirp Feed:</h2>
         {{#each chirps as |chirp|}}
         <div class="row">
             <div class="col">
-                <h3><a href="/posts/{{chirp.id}}">{{chirp}}</a></h3>
-            </div>
-            <div class="col">
-               <button class="btn" type="submit" id="deleteBtn" data-id={{chirp.id}}>Delete</button>
+                <h3><a href="/profile/{{chirp.id}}">{{chirp.chirp}}</a></h3>
             </div>
         </div>
         {{/each}}
