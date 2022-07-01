@@ -54,8 +54,115 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+      const userData = await User.create({
+          user_name: req.body.user_name,
+          email: req.body.email,
+          password: req.body.password
+      })
+      // req.session.save(() => {
+      //     req.session.user_id = userData.id;
+      //     req.session.username = userData.username
+      //     req.session.logged_in = true;
 
+          res.json(userData);
+      // });
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
 
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({
+            where: {
+                user_name: req.body.user_name
+            }
+        });
+
+        if (!userData) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect username, please try again' });
+            return;
+        }
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect password, please try again' });
+            return;
+        }
+
+        // req.session.save(() => {
+        //     req.session.user_id = userData.id;
+        //     req.session.username = userData.username;
+        //     req.session.logged_in = true;
+
+        res.json({ user: userData, message: 'You are now logged in!' });
+        // });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      });
+  } else {
+      res.status(404).end();
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  console.log('PUT /api/users/:id');
+  try {
+      const userData = await User.update(req.body, {
+          individualHooks: true,
+          where: {
+              id: req.params.id
+          }
+      });
+
+      if (!userData) {
+          res.status(404).json({ message: 'No user found with this id!' });
+          return;
+      }
+      console.log(userData);
+      res.json(userData);
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+      const userData = await User.destroy({
+          where: {
+              id: req.params.id
+          }
+      });
+
+      if (!userData) {
+          res.status(404).json({ message: 'No user found with this id!' });
+          return;
+      }
+
+      res.json(userData);
+
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
 
 
 
@@ -93,48 +200,49 @@ router.get('/:id', async (req, res) => {
 // });
 
 // CREATE new user thru signup
-router.post("/signup", async (req, res) => {
-    console.log("POST /api/user/signup");
-    try {
-      const dbUserData = await User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-      });
+// router.post("/signup", async (req, res) => {
+//     console.log("POST /api/user/signup");
+//     try {
+//       const dbUserData = await User.create({
+//         name: req.body.name,
+//         email: req.body.email,
+//         password: req.body.password,
+//       });
   
-      // res.redirect(307, "/api/user/login");
-      // Or redirect to login web page
-      res.redirect("/login");
-    } catch (err) {
-      console.log(err.errors[0]);
-      res.status(500).json({ messge: err.errors[0]["message"]});
-    }
-  });
+//       // res.redirect(307, "/api/user/login");
+//       // Or redirect to login web page
+//       res.redirect("/login");
+//     } catch (err) {
+//       console.log(err.errors[0]);
+//       res.status(500).json({ messge: err.errors[0]["message"]});
+//     }
+//   });
   
-  router.get("/user_data", (req, res) => {
-    console.log("GET /api/user/user_data");
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        name: req.user.name,
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
-  });
-  // Logout
-  router.get("/logout", (req, res) => {
-    console.log("GET - /api/user/logout");
-    if (req.user) {
-      req.logout();
-      res.redirect("/");
-    } else {
-      res.status(404).end();
-    }
-  });
+//   router.get("/user_data", (req, res) => {
+//     console.log("GET /api/user/user_data");
+//     if (!req.user) {
+//       // The user is not logged in, send back an empty object
+//       res.json({});
+//     } else {
+//       // Otherwise send back the user's email and id
+//       // Sending back a password, even a hashed password, isn't a good idea
+//       res.json({
+//         name: req.user.name,
+//         email: req.user.email,
+//         id: req.user.id
+//       });
+//     }
+//   });
+
+//    // Logout
+//  router.get("/logout", (req, res) => {
+//   console.log("GET - /api/user/logout");
+//   if (req.user) {
+//     req.logout();
+//     res.redirect("/");
+//   } else {
+//     res.status(404).end();
+//   }
+// });
   
   module.exports = router;
