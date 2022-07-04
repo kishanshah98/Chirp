@@ -1,6 +1,8 @@
-const User = require('./User');
-const Comments = require('./Comments');
-const Chirp = require('./Chirp');
+const User = require('./user');
+const Comments = require('./comments');
+const Chirp = require('./chirp');
+
+// files need to start with lowercase
 
 User.hasMany(Chirp, {
     foreignKey: 'user_id',
