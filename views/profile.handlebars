@@ -2,8 +2,8 @@
 <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
   <div class="card-header">{{ user.user_name }}</div>
   <div class="card-body">
-    <h5 class="card-title">{{ date_created }}</h5>
-    <p class="card-text">{{ chirp }}</p>
+    <h5 class="card-title">{{ chirp }}</h5>
+    <p class="card-text">{{ date_created }}</p>
   </div>
 </div>
 
@@ -11,15 +11,18 @@
   <div class="mb-3 new-chirp-comment" data-chirpid={{id}}>
   <label for="exampleFormControlTextarea1" class="form-label">Post a comment below...</label>
   <textarea class="form-control" id="comment" rows="3"></textarea>
-  <button class="btn primary" type="submit" id="submitBtn">Post Comment</button>
+  <button class="btn primary commentBtn" type="submit" id="submitBtn">Post Comment</button>
 </div>
 {{/if}}
 
 <h2>Chirp Comments</h2>
 {{#each comments as |comment|}}
 <div class="chirp-comments">
-  <p>{{comments}}</p>
-  <p>{{created_at}}</p>
+  <ul class="list-group">
+    <li class="list-group-item chirp-comment">
+      {{ user.user_name }}{{comments}}
+    </li>
+  </ul>
 </div>
 {{/each}}
 

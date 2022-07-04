@@ -1,0 +1,86 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.navLogo {
+    font-weight: bold;
+    font-size: large;
+}
+
+.chirp-content {
+
+}
+
+.chirpContainer {
+    margin-top: 10px;
+    border-style: solid;
+}
+
+.createChirp {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+}
+
+.chirp-text-container {
+    border-style: solid;
+    margin-bottom: 5px;
+    padding: 2px;
+    background-color: blue;
+}
+
+.card {
+    margin-top: 10px;
+    border-style: solid;
+    background-color: blue;
+}
+
+.card-header {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.chirpComments {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    max-width: 75%;
+    background-color: blue;
+    color: white;
+}
+
+.chirp-comment {
+    font-size: 14px;
+}
+
+.chirp-comments {
+    width: 290px;
+}
+
+.comment-date {
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.signin, .signup {
+    margin-left: 25px;
+}
+
+a:link {
+    color: white
+}
+
+a:visited {
+    color: purple
+}
+
+a:hover {
+    color: red
+}
+
+
+
+
+
