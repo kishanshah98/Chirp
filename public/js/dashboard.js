@@ -1,6 +1,7 @@
 const newChirp = async (event) => {
     event.preventDefault();
-    const chirpBody = document.getElementById("chirpBody").value().trim();
+    console.log("submit btn clicked!")
+    const chirpBody = document.getElementById("chirp-body").value.trim();
 
     if(chirpBody) {
         const response = await fetch("/api/posts", {
