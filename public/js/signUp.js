@@ -1,4 +1,5 @@
 const signUpFormHandler = async (event) => {
+  console.log('signUpFormHandler');
     event.preventDefault();
   
     const username = document.querySelector('#username').value.trim();
@@ -6,6 +7,7 @@ const signUpFormHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
   
     if (username && email && password) {
+      console.log('signup');
       // Send a POST request to the API endpoint
       const response = await fetch('/api/users/signup', {
         method: 'POST',
@@ -15,11 +17,11 @@ const signUpFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/main');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
     }
   };
 
-  document.getElementById("submitBtn").addEventListener("click", signInFormHandler);
+  document.getElementById("submitBtn").addEventListener("click", signUpFormHandler);
