@@ -1,6 +1,6 @@
 {{!-- username, timecreated, chirp --}}
 <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-  <div class="card-header">{{ user.user_name }}</div>
+  <div class="card-header">{{ user.username }}</div>
   <div class="card-body">
     <h5 class="card-title">{{ chirp }}</h5>
     <p class="card-text">{{ date_created }}</p>
@@ -20,7 +20,7 @@
 <div class="chirp-comments">
   <ul class="list-group">
     <li class="list-group-item chirp-comment">
-      {{ user.user_name }}{{comments}}
+      {{ user.username }}{{comments}}
     </li>
   </ul>
 </div>
