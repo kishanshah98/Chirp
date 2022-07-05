@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Chirp, User, Comments } = require('../models');
+const path = require('path');
 const withAuth = require('../utils/auth');
+const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 router.get('/', async (req, res) => {
     console.log("GET /")
@@ -26,7 +28,8 @@ router.get('/', async (req, res) => {
     }
   });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', isAuthenticated, async (req, res) => {
+  console.log('GET /profile');
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
@@ -68,19 +71,19 @@ router.get('/profile/:id', async (req, res) => {
   }
 });
 
-router.get('/signIn', (req, res) => {
-  console.log('GET /signIn');
+router.get('/signin', (req, res) => {
+  console.log('GET /signin');
   // if (req.session.logged_in) {
   //   res.redirect('/profile');
   //   return;
   // }
 
-  res.render('signIn');
+  res.render('signin');
 });
 
-router.get('/signUp', (req, res) => {
-  console.log('GET /signUp');
-  res.render('signUp');
+router.get('/signup', (req, res) => {
+  console.log('GET /signup');
+  res.render('signup');
 });
 
 module.exports = router
