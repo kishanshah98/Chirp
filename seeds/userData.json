@@ -1,11 +1,11 @@
 [
     {
-        "user_name": "Java-Monster",
+        "username": "Java-Monster",
         "email": "javamon@email.com",
         "password": "pass1234"
     },
     {
-        "user_name": "King-Python",
+        "username": "King-Python",
         "email": "kingpython@email.com",
         "password": "pass1234"
       }

@@ -2,9 +2,9 @@ const newChirp = async (event) => {
     event.preventDefault();
     console.log("submit btn clicked!")
     const chirpBody = document.getElementById("chirp-body").value.trim();
-
+    console.log(chirpBody);
     if(chirpBody) {
-        const response = await fetch("/api/posts", {
+        const response = await fetch("/api/chirps", {
             method: "POST",
             body: JSON.stringify({chirpBody}),
             headers: {

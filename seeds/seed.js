@@ -3,20 +3,6 @@ const { User, Chirp, Comments } = require('../models');
 
 const userData = require('./userData.json');
 
-// const userData =
-// [
-//   {
-//       "user_name": "Java-Monster",
-//       "email": "javamon@email.com",
-//       "password": "1234"
-//   },
-//   {
-//     "user_name": "King-Python",
-//     "email": "kingpython@email.com",
-//     "password": "pass1234"
-//   }
-// ];
-
 const chirpData = require('./chirpData.json');
 const commentsData = require('./commentsData.json');
 

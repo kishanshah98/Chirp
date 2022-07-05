@@ -3,6 +3,7 @@ const { User, Chirp, Comments } = require("../../models");
 const passport = require("../../config/passport");
 
 router.get('/', async (req, res) => {
+    console.log('GET /api/users')
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] }
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+    console.log('GET /api/users/id')
     try {
         const userData = await User.findOne({
             attributes: {
@@ -55,9 +57,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log('POST /api/users')
     try {
         const userData = await User.create({
-            user_name: req.body.user_name,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password
         })
@@ -186,7 +189,7 @@ router.post("/signup", async (req, res) => {
     console.log("POST /api/users/signup");
     try {
         const dbUserData = await User.create({
-            user_name: req.body.username,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
         });
@@ -209,7 +212,7 @@ router.get("/user_data", (req, res) => {
         // Otherwise send back the user's email and id
         // Sending back a password, even a hashed password, isn't a good idea
         res.json({
-            user_name: req.user.username,
+            username: req.user.username,
             email: req.user.email,
             id: req.user.id
         });

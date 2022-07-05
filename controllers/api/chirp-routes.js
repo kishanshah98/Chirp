@@ -3,7 +3,7 @@ const { Chirp, Comments, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-    console.log('/GET posts')
+    console.log('GET /api/chirps')
     try {
         const chirpData = await Chirp.findAll({
             attributes: [
@@ -19,12 +19,12 @@ router.get('/', async (req, res) => {
                     attributes: ['id', 'comments', 'chirp_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
-                        attributes: ['user_name']
+                        attributes: ['username']
                     }
                 },
                 {
                     model: User,
-                    attributes: ['user_name'],
+                    attributes: ['username'],
                 },
             ]
         })
@@ -38,6 +38,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+    console.log('GET /api/chirps')
     try {
         const chirpData = await Chirp.findOne({
             where: {
@@ -53,12 +54,12 @@ router.get('/:id', async (req, res) => {
                     attributes: ['id', 'comments', 'chirp_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
-                        attributes: ['user_name']
+                        attributes: ['username']
                     }
                 },
                 {
                     model: User,
-                    attributes: ['user_name'],
+                    attributes: ['username'],
                 },
             ]
         })
@@ -77,13 +78,13 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log('POST /api/chirps');
     try {
         const chirpData = await Chirp.create({
             chirp: req.body.chirp,
             user_id: req.body.user_id,
         });
-
-        res.json(chirpData);
+        console.log(chirpData);
 
     } catch (err) {
         console.log(err);

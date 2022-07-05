@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         include: [
           {
             model: User,
-            attributes: ['user_name'],
+            attributes: ['username'],
           },
         ],
       });
@@ -20,9 +20,8 @@ router.get('/', async (req, res) => {
       // /console.log(chirps);
       res.render('dashboard', { 
         chirps,
-        // logged_in: req.session.logged_in
+        logged_in: req.session.logged_in
       });
-      // res.json(postData)
     } catch (err) {
       res.status(500).json(err);
     }
@@ -39,7 +38,7 @@ router.get('/profile', isAuthenticated, async (req, res) => {
 
     res.render('profile', {
       ...user,
-//       logged_in: true
+      logged_in: true
       
     });
     res.json(userData);
@@ -60,10 +59,9 @@ router.get('/profile/:id', async (req, res) => {
 
     res.render('profile', {
       ...chirp,
-//       logged_in: true
+      logged_in: true
       
     });
-    // res.json(chirpData);
     
   } catch (err) {
     console.log(err);
@@ -73,10 +71,10 @@ router.get('/profile/:id', async (req, res) => {
 
 router.get('/signin', (req, res) => {
   console.log('GET /signin');
-  // if (req.session.logged_in) {
-  //   res.redirect('/profile');
-  //   return;
-  // }
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
 
   res.render('signin');
 });
