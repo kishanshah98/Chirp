@@ -6,14 +6,15 @@ const newChirp = async (event) => {
     if(chirpBody) {
         const response = await fetch("/api/chirps", {
             method: "POST",
-            body: JSON.stringify({chirpBody}),
+            body: JSON.stringify({chirp: chirpBody}),
             headers: {
                 "content-type": "application/json",
             },
         });
 
         if(response.ok) {
-            document.location.replace("/dashboard");
+            document.location.reload();
+            // document.location.replace('/dashboard');
         } else {
             alert("Can't create chirp!");
         }

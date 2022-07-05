@@ -75,17 +75,20 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     console.log('POST /api/chirps');
+    console.log(req.body);
     try {
         const chirpData = await Chirp.create({
             chirp: req.body.chirp,
-            // user_id: req.body.user_id,
+            user_id: req.body.user_id,
         });
-        console.log(chirpData);
-
+        res.render('dashboard',
+            
+        )
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
+
 });
 
 router.put('/:id', async (req, res) => {

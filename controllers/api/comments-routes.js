@@ -28,14 +28,17 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     console.log('POST /api/comments');
+    console.log(req.body);
+    // console.log(typeof req.session.chirp_id);
+    console.log(typeof req.session.user_id);
+
     try {
         const commentData = await Comments.create({
             comments: req.body.comments,
-            chirp_id: req.body.chirp_id,
-            // user_id: req.body.user_id,
+            chirp_id: parseInt(req.body.chirpId),
+            user_id: req.session.user_id,
         });
-        console.log(commentData);
-        res.render()
+        res.render('profile')
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
