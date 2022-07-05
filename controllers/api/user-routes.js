@@ -195,21 +195,21 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-router.get("/user_data", (req, res) => {
-    console.log("GET /api/user/user_data");
-    if (!req.user) {
-        // The user is not logged in, send back an empty object
-        res.json({});
-    } else {
-        // Otherwise send back the user's email and id
-        // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-            username: req.user.username,
-            email: req.user.email,
-            id: req.user.id
-        });
-    }
-});
+// router.get("/user_data", (req, res) => {
+//     console.log("GET /api/user/user_data");
+//     if (!req.user) {
+//         // The user is not logged in, send back an empty object
+//         res.json({});
+//     } else {
+//         // Otherwise send back the user's email and id
+//         // Sending back a password, even a hashed password, isn't a good idea
+//         res.json({
+//             username: req.body.username,
+//             email: req.body.email,
+//             id: req.body.id
+//         });
+//     }
+// });
 
 // Logout
 
