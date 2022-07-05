@@ -17,7 +17,6 @@ Comments.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
@@ -25,7 +24,6 @@ Comments.init(
     },
     chirp_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'chirp',
         key: 'id',
