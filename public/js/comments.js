@@ -2,7 +2,7 @@ const submitComment = async (event) => {
     event.preventDefault();
 
     const chirpId = document.querySelector(".new-chirp-comment").dataset.chirpId;
-    const commentBody = document.getElementById("commentBody").value.trim();
+    const commentBody = document.querySelector("#comment").value.trim();
 
     if (commentBody) {
         await fetch ("/api/comments", {
@@ -18,4 +18,4 @@ const submitComment = async (event) => {
     }
 };
 
-// document.getElementById("submitBtn").addEventListener("click", submitComment);
+document.getElementById("submitBtn").addEventListener("click", submitComment);

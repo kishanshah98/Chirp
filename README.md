@@ -22,7 +22,7 @@ This application resembles a "mock twitter" program in which one can create an a
 5. Run node server.js
 6. Open on Heroku
 
-[Deployed Link of Chirp]()
+[Deployed Link of Chirp](https://chirp-oneandonly.herokuapp.com/)
 
 ## Usage
 This application can be used for entertainment purposes similar to most other social media applications. To sign up, simply click the Sign Up button in the navigation bar if you do not have an account already. If you are already an existing user, simply click the Sign In button to input your email and password. To create a post, go to the Home screen and type in a message in the empty box and click Submit.
