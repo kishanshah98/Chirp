@@ -68,6 +68,19 @@ router.get('/profile/:id', async (req, res) => {
   }
 });
 
+router.get('/signIn', (req, res) => {
+  console.log('GET /signIn');
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
 
-  
+  res.render('signIn');
+});
+
+router.get('/signUp', (req, res) => {
+  console.log('GET /signUp');
+  res.render('signUp');
+});
+
 module.exports = router

@@ -1,26 +1,32 @@
 [
     {
         "chirp": "Coding rocks!",
-        "user_id": 1
-    },
-    {
-        "chirp": "Coding rocks!",
+        "date_created": "07/01/2022",
         "user_id": 2
     },
     {
-        "chirp": "Coding rocks!",
-        "user_id": 1
-    },
-    {
-        "chirp": "Coding rocks!",
+        "chirp": "Can't wait for the fourth of July celebrations!",
+        "date_created": "06/28/2022",
         "user_id": 2
     },
     {
-        "chirp": "Coding rocks!",
+        "chirp": "This weather is great, I love the summer!",
+        "date_created": "07/02/2022",
         "user_id": 1
     },
     {
-        "chirp": "Coding rocks!",
+        "chirp": "Bored, no plans for this weekend.",
+        "date_created": "07/01/2022",
+        "user_id": 2
+    },
+    {
+        "chirp": "Anyone have any suggestions on where to go out to eat around this area?",
+        "date_created": "07/03/2022",
+        "user_id": 1
+    },
+    {
+        "chirp": "Spending the day at the beach!",
+        "date_created": "07/04/2022",
         "user_id": 1
     }
 ]

@@ -1,31 +1,31 @@
 <div class="row">
-    <div class="col">
+    <div class="col-auto">
         <h1>
             Hello {{ user_name }}! Welcome to Chirp!
         </h1>
     </div>
 </div>
 
-<div class="row">
-    <div class="col">
+<div class="row mt-2">
+    <div class="col-md-4">
         <h2>New Chirp:</h2>
-     <form class="row g-3">
+     <form class="row g-3 new-chirp-form">
         <div class="chirp-content">
-            <textarea type="text" class="form-control" placeholder="body" id="chirpBody"></textarea>
+            <textarea type="text" class="form-control" placeholder="enter chirp here..." id="chirp-body"></textarea>
         </div>
         <div class="submit-chirp">
-            <button class="btn" type="submit" id="submitBtn">Submit</button>
-            <button class="btn" type="submit" id="deleteBtn" data-id={{chirp.id}}>Delete</button>
+            <button class="btn btn-primary" type="submit" id="submitBtn"><i class="bi bi-send-fill"></i></button>
+            <button class="btn btn-danger" type="submit" id="deleteBtn" data-id={{chirp.id}}><i class="bi bi-trash3-fill"></i></button>
         </div>
      </form>
     </div>
 
     {{#if chirps.length}}
-    <div class="col chirp-list">
+    <div class="col-md-4 chirp-list">
         <h2>Chirp Feed:</h2>
         {{#each chirps as |chirp|}}
-        <div class="row">
-            <div class="col">
+        <div class="row mb-4">
+            <div class="col-md-6">
                 <h3><a href="/profile/{{chirp.id}}">{{chirp.chirp}}</a></h3>
             </div>
         </div>
