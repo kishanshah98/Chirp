@@ -78,7 +78,7 @@ router.post('/', async (req, res) => {
     try {
         const chirpData = await Chirp.create({
             chirp: req.body.chirp,
-            user_id: req.body.user_id,
+            // user_id: req.body.user_id,
         });
         console.log(chirpData);
 

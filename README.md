@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green.png)
 
-This application resembles a "mock twitter" program in which one can create an account and make posts and comments to interact with others.
+This application resembles a "mock twitter" program in which one can create an account and make posts and comments to interact with others. While the user is not signed in, they would only be able to view other users' posts on the Home page. However, once the user signs up or signs into their account, they will be able to have access to the Dashboard in which they will have the option to either create a post or click on individual posts to have the ability to see and create comments. 
 
 ![Screenshot]()
 

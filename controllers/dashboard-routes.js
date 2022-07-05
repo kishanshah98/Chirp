@@ -18,6 +18,29 @@ router.get('/', async (req, res) => {
   
       const chirps = postData.map((post) => post.get({ plain: true }));
       // /console.log(chirps);
+      res.render('home', { 
+        chirps,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/dashboard', async (req, res) => {
+    console.log("GET /")
+    try {
+      const postData = await Chirp.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+        ],
+      });
+  
+      const chirps = postData.map((post) => post.get({ plain: true }));
+      // /console.log(chirps);
       res.render('dashboard', { 
         chirps,
         logged_in: req.session.logged_in
@@ -27,6 +50,7 @@ router.get('/', async (req, res) => {
     }
   });
 
+  
 router.get('/profile', isAuthenticated, async (req, res) => {
   console.log('GET /profile');
   try {
