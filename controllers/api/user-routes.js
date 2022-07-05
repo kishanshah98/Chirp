@@ -9,8 +9,6 @@ router.get('/', async (req, res) => {
             attributes: { exclude: ['password'] }
         });
 
-        res.json(userData);
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -48,8 +46,6 @@ router.get('/:id', async (req, res) => {
             return;
         }
 
-        res.json(userData)
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -71,7 +67,6 @@ router.post('/', async (req, res) => {
             req.session.username = userData.username
             req.session.logged_in = true;
             //  ===========================================================
-            res.json(userData);
         });
     } catch (err) {
         res.status(400).json(err);
@@ -140,7 +135,6 @@ router.put('/:id', async (req, res) => {
             return;
         }
         console.log(userData);
-        res.json(userData);
 
     } catch (err) {
         console.log(err);
@@ -160,8 +154,6 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'No user found with this id!' });
             return;
         }
-
-        res.json(userData);
 
     } catch (err) {
         console.log(err);

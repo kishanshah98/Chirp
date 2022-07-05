@@ -29,8 +29,6 @@ router.get('/', async (req, res) => {
             ]
         })
 
-        res.json(chirpData)
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -69,8 +67,6 @@ router.get('/:id', async (req, res) => {
             return;
         }
 
-        res.json(chirpData);
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -108,8 +104,6 @@ router.put('/:id', async (req, res) => {
             return;
         }
 
-        res.json(chirpData);
-
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -129,8 +123,6 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'No chirp found with this id!' });
             return;
         }
-
-        res.json(chirpData);
 
     } catch (err) {
         console.log(err);
