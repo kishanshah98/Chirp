@@ -29,7 +29,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     console.log('POST /api/comments');
     console.log(req.body);
-    // console.log(typeof req.session.chirp_id);
     console.log(typeof req.session.user_id);
 
     try {
