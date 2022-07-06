@@ -10,9 +10,6 @@ router.get('/', async (req, res) => {
                 'id',
                 'chirp',
             ],
-            // order: [
-            //     ['created_at', 'DESC']
-            // ],
             include: [
                 {
                     model: Comments,

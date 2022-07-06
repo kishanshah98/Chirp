@@ -1,6 +1,10 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+}
+
+.navbar {
+    background-color: #B8B8B8	;
 }
 
 .navLogo {
@@ -8,33 +12,33 @@ body {
     font-size: large;
 }
 
-.chirp-content {
-
-}
-
 .chirpContainer {
     margin-top: 10px;
     border-style: solid;
+}
+
+a {
+    text-decoration: none;
 }
 
 .createChirp {
     font-weight: bold;
     font-size: 12px;
     padding: 5px;
-    color: white;
+    color: black;
 }
 
 .chirp-text-container {
     border-style: solid;
     margin-bottom: 5px;
     padding: 2px;
-    background-color: blue;
+    background-color: #42bff5;
 }
 
 .card {
     margin-top: 10px;
     border-style: solid;
-    background-color: blue;
+    background-color: #42bff5;
 }
 
 .card-header {
@@ -47,7 +51,7 @@ body {
     margin-right: auto;
     margin-top: 10px;
     max-width: 75%;
-    background-color: blue;
+    background-color: #42bff5;
     color: white;
 }
 
@@ -69,15 +73,11 @@ body {
 }
 
 a:link {
-    color: white
-}
-
-a:visited {
-    color: purple
+    color: blue
 }
 
 a:hover {
-    color: red
+    color: purple
 }
 
 

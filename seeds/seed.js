@@ -17,21 +17,6 @@ const seedDatabase = async () => {
   const chirp  = await Chirp.bulkCreate(chirpData);
 
   const comments = await Comments.bulkCreate(commentsData);
-
-  // for (const chirp of chirpData) {
-  //   await Chirp.create({
-  //     ...chirp,
-  //     user_id: users[Math.floor(Math.random() * 1000000000)].id,
-  //   });
-  // }
-
-  // for (const comments of commentsData) {
-  //   await Comments.create({
-  //     ...comments,
-  //     chirp_id: users[Math.floor(Math.random() * 1000000000)].id,
-  //   });
-  // }
-
   
   process.exit(0);
 };
