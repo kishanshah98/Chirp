@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
       });
   
       const chirps = postData.map((post) => post.get({ plain: true }));
-      // /console.log(chirps);
       res.render('home', { 
         chirps,
         logged_in: req.session.logged_in
@@ -40,7 +39,6 @@ router.get('/', async (req, res) => {
       });
   
       const chirps = postData.map((post) => post.get({ plain: true }));
-      // /console.log(chirps);
       res.render('dashboard', { 
         chirps,
         logged_in: req.session.logged_in
